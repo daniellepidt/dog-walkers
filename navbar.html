@@ -1,0 +1,47 @@
+<!-- This file is used to render the Navbar in accordance with the user's type - Walker/Owner. It only appears on pages where the user is logged in. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/navbar.css">
+  </head>
+  <header>
+    <nav class="fixed-navbar">
+      <p class="names" dir="rtl">
+        קבוצה 7 - אלמוג אסרף 313200511, דניאל פידטילוק 322558867, ניר לבנון 313160715
+      </p>
+      <ul>
+        <li>
+          <!-- Seperated the avatars component to reduce in-page text -->
+          {% include "/components/avatars.html" %}
+        </li>
+        <!-- Render the links for the different pages by setting the navbar_menus prop in-file using Jinja -->
+        {% if user_type == 'owner' %}
+        <!-- Buttons used by a 'Dog Owner' type of user -->
+        {% set navbar_menus = [
+          ('/logout', 'Logout'),
+          ('/owner/walks_and_requests', 'My Walks'),
+          ('/owner/dogs/my_dogs', 'My Dogs'),
+        ] -%}
+        {% elif user_type == 'walker' %}
+        <!-- Buttons used by a 'Dog Walker' type of user -->
+        {% set navbar_menus = [
+          ('/logout', 'Logout'),
+          ('/walker/walks_and_requests', 'Requests & Set Walks'),
+        ] -%}
+        {% endif %}
+        <li>
+          <a>WalkMenny</a>
+        </li>
+        {% for href, caption in navbar_menus %}
+          <li class="links">
+            <a href="{{ href }}">
+              {{ caption }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+</html>
+
+

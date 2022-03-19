@@ -1,0 +1,35 @@
+<!-- A new user which picks to be a Dog Walker is referred to this page. Here he fills out the information which will be saved into our DB. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dog Walker Register - WalkMenny </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/input.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/table.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <h1 class="open-sans">
+      Could ya be a darlin' and fill this out for me?
+    </h1>
+    <br>
+    <!-- Registration Form - Seperated to different files to improve readability -->
+    <div class="center-form">
+      <form class="form__group field" action="/walker/register" method="post">
+        <!-- Personal Details - Here the new Dog Walker fills out his information to be saved into to the DB. Seperated to a different file to improve readability -->
+        {% include 'walker/register/components/register_form.html' %}
+        <!-- Pricing Table - Three number fields used to save the Dog Walker's pricing according to dogs sizes - Small, Medium & Large. Seperated to a different file to improve readability -->
+        {% include 'walker/register/components/pricing_table.html' %}
+        <!-- Walk Times Table - All options to select on which Days & Times the Dog Walker would be available for setting a Walk. Seperated to a different file to improve readability -->
+        {% include 'walker/register/components/walk_times_table.html' %}
+
+        <input class="done-button orange-bg" type="submit" value="Continue">
+      </form>
+    </div>
+  </body>
+</html>

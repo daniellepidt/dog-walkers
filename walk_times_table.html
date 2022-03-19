@@ -1,0 +1,24 @@
+<!-- Walk Times Table - All options to select on which Days & Parts of Day the Dog Walker would be available for setting a Walk. Seperated to a different file to improve readability -->
+<h1 class="open-sans">
+When do you walk?
+</h1>
+
+<table>
+  <tr>
+    <th>Day of the Week</th>
+    <th>Morning</th>
+    <th>Noon</th>
+    <th>Evening</th>
+  </tr>
+  <!-- A new row is created for every day of the week -->
+  <!-- Then, a new column is added for every part of the day - Morning, Noon & Evening -->
+  <!-- All options are checked as default, and the Dog Walker unselects the parts of the days he doesn't wish to work on. -->
+  {% for day in days %}
+    <tr>
+      <td>{{ day }}</td>
+      {% for part in parts_of_day %}
+        <td><input type="checkbox" name="{{day}}-{{part}}" value="{{day}}-{{part}}" checked></td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+</table>

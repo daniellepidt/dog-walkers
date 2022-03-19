@@ -1,0 +1,21 @@
+<!-- This page presents the Dog Owner his own Dogs, and he can create a new one by clicking the "Add Dog" button which leads to the Add New Dog page. -->
+{% extends 'base.html' %}
+
+{% block title %}My Dogs{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/input.css">
+{% endblock %}
+{% block content %}
+    <h1 class="headline">My Dogs</h1>
+    <!-- Table presenting the Dog Owner's Dogs. Seperated to different file to improve readability. -->
+    {% include 'owner/dogs/my_dogs_table.html' %}
+    <br>
+    <h1 class="open-sans">Would you like to add another dog?</h1>
+    <div class="flexbox-line">
+        <!-- Button leading to the Add New Dog page -->
+        <a class="pick-button orange-bg" href="/owner/dogs/new_dog">
+            Add Dog
+        </a>
+    </div>
+{% endblock %}

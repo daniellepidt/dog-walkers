@@ -1,0 +1,44 @@
+<!-- Table presenting the Dog Owner's Dogs. Seperated to different file to improve readability. -->
+<table>
+  <tr>
+    <th>Dog's Name</th>
+    <th>Gender</th>
+    <th>Size</th>
+    <th>Age</th>
+    <th>Friendly?</th>
+    <th>Vaccinated?</th>
+  </tr>
+  <!-- Adds a new row in the table for every Dog which belongs to the Dog Owner -->
+  {% for dog in dogs %}
+    <tr>
+        <td>
+          {{ dog.name }}
+        </td>
+        <td>
+          {{ dog.gender }}
+        </td>
+        <td>
+          {{ dog.size }}
+        </td>
+        <td>
+          {{ dog.age }}
+        </td>
+        <td>
+          {% if dog.friendly == True %}
+            <span class="marked-true"> Yes </span>
+          {% elif dog.friendly == False %}
+            <span class="marked-false"> No </span>
+            {{ item }}
+          {% endif %}
+        </td>
+        <td>
+          {% if dog.vaccinated == True %}
+            <span class="marked-true"> Yes </span>
+          {% elif dog.vaccinated == False %}
+            <span class="marked-false"> No </span>
+            {{ item }}
+          {% endif %}
+        </td>
+    </tr>
+  {% endfor %}
+</table>

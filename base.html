@@ -1,0 +1,26 @@
+<!-- This file is our applications base file, which we extend to other files in order to minimize the need to write basic HTML & CSS code.  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/input.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/table.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- title block is used to make a different title for every page, while retaining the ability to have a uniform title for all of the app's pages. -->
+    <title>{% block title %}{% endblock %} - WalkMenny</title>
+    {% endblock head %}
+  </head>
+  
+  <!-- Navbar seperated to different file to reduce text in file, and rendered according to the user's type -->
+  {% include '/components/navbar.html' %}
+  
+  <!-- content block contains the HTML code of the different pages themselves  -->
+  <body>
+    <div id="content">{% block content %}{% endblock %}</div>
+  </body>
+</html>

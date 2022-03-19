@@ -1,0 +1,23 @@
+<!-- This is the base file for the add new dog form. -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add New Dog - WalkMenny </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/input.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <h1 class="open-sans">
+      So... You got a dog??
+    </h1>
+    <br>
+    <!-- Add Dog Form seperated to a differrent file to improve code readability -->
+    {% include 'owner/dogs/add_dog_form.html' %}
+  </body>
+</html>

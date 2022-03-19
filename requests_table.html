@@ -1,0 +1,79 @@
+<!-- The Dog Walker's requests table contains all of his incoming requested for him to approve or decline. Seperated to improve code readability -->
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Dog</th>
+    <th>Size</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Friendly?</th>
+    <th>Vaccinated?</th>
+    <th>Owner</th>
+    <th>Phone</th>
+    <th>E-Mail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <!-- A new row in the table is added for every request the Dog Walker has received and hasn't answered yet -->
+  {% for request in requests %}
+    <tr>
+        <td>
+          {{ request.day }}
+        </td>
+        <td>
+          {{ request.part }}
+        </td>
+        <td>
+          {{ request.dog.name }}
+        </td>
+        <td>
+          {{ request.dog.size }}
+        </td>
+        <td>
+          {{ request.dog.gender }}
+        </td>
+        <td>
+          {{ request.dog.age }}
+        </td>
+        <td>
+          {% if request.dog.friendly == True %}
+            <span class="marked-true"> Yes </span>
+          {% elif request.dog.friendly == False %}
+            <span class="marked-false"> No </span>
+            {{ item }}
+          {% endif %}
+        </td>
+        <td>
+          {% if request.dog.vaccinated == True %}
+            <span class="marked-true"> Yes </span>
+          {% elif request.dog.vaccinated == False %}
+            <span class="marked-false"> No </span>
+            {{ item }}
+          {% endif %}
+        </td>
+        <td>
+          {{ request.dog.owner.name }}
+        </td>
+        <td>
+          {{ request.dog.owner.phone }}
+        </td>
+        <td>
+          {{ request.dog.owner.email }}
+        </td>
+        <td>
+          <!-- Accept Walk Request form & button -->
+          <a class="pick-btn" href="/walker/walks_and_requests/accept?id={{ request.id }}">
+            Accept
+          </a>
+        </td>
+        <td>
+          <!-- Decline Walk Request form & button -->
+          <a class="cancel-btn" href="/walk/cancel?id={{ request.id }}">
+            Decline
+          </a>
+        </td>
+    </tr>
+  {% endfor %}
+</table>

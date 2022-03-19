@@ -1,0 +1,64 @@
+<!-- The form allowing to set a new Walk - Seperated to different file to improve readability -->
+<form action="/owner/walks_and_requests" method="get">
+  <!-- The Dog Owner selects via this form the request Day, Time & Dog he'd like to have walked, presses "Search" and then he gets back the results. Further information can be found in the next comment. -->
+  <div class="center-block">
+    <div class="quarter-column">
+      <select name="days" id="days" class="form__field">
+        {% for day in days %}
+          <option value="{{ day }}">{{ day }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="quarter-column">
+      <select name="parts_of_day" id="parts_of_day" class="form__field">
+        {% for part in parts_of_day %}
+          <option value="{{ part }}">{{ part }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="quarter-column">
+      <select name="dogs" id="dogs" class="form__field">
+        {% for dog in dogs %}
+          <option value="{{ dog.id }}">{{ dog.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="quarter-column">
+      <input class="done-button orange-bg" type="submit" value="Search">
+    </div>
+  </div>
+</form>
+<br>
+<!-- This table shows the Walkers available at the requested Day & Time, with their contact details and a button for requesting the Walk -->
+<table>
+  <tr>
+    <th>Walker</th>
+    <th>Price</th>
+    <th>Phone</th>
+    <th>Mail</th>
+    <th></th>
+  </tr>
+  <!-- Adds a new row for every Walker which is available at the requested Day & Time -->
+  {% for walker in walkers %}
+    <tr>
+        <td>
+          {{ walker.name }}
+        </td>
+        <td>
+          {{ walker.price }}
+        </td>
+        <td>
+          {{ walker.phone }}
+        </td>
+        <td>
+          {{ walker.email }}
+        </td>
+        <td>
+          <!-- Every row has a form with a button which is used to set a walk with it's Walker. -->
+          <a class="pick-btn" href="/owner/walks_and_requests/insert?walker_email={{ walker.email }}&day={{ chosen_day }}&part={{ chosen_part }}&dog_id={{ chosen_dog }}">
+            Pick me!
+          </a>
+        </td>
+    </tr>
+  {% endfor %}
+</table>

@@ -1,0 +1,32 @@
+<!-- This form is used to add a new Dog by a Dog Owner via post method -->
+<div class="center-form">
+  <form class="form__group field" action="/owner/dogs/new_dog" method="post">
+    <input class="form__field" type="text" id="dogname" name="dogname" placeholder="Dog's Name" required>
+    <br>
+    <label for="gender">Dog's Gender:</label>
+    <select name="gender" id="gender" class="form__field">
+      <option value="male" default>Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <br>
+    <label for="size">Dog's Size:</label>
+    <select name="size" id="size" class="form__field">
+      <option value="Small" default>Small</option>
+      <option value="Medium">Medium</option>
+      <option value="Large">Large</option>
+    </select>
+    <br>
+    <label for="birthday">Birthday:</label>
+    <input class="form__field" type="date" id="birthday" name="birthday" required>
+    <br>
+    <div class="checkbox-div">
+      <input type="checkbox" name="friendly" value="friendly">
+      <label for="friendly"> My dog is friendly to other dogs and people</label>
+      <br>
+      <input type="checkbox" name="vaccinated" value="vaccinated">
+      <label for="vaccinated"> My dog is vaccinated and healthy</label>
+      <br>
+    </div>
+    <input class="done-button orange-bg" type="submit" value="Add My Dog">
+  </form>
+</div>

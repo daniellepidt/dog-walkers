@@ -1,0 +1,65 @@
+<!-- The set walks table -  Seperated to improve code readability -->
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Dog</th>
+    <th>Size</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Friendly?</th>
+    <th>Vaccinated?</th>
+    <th>Owner</th>
+    <th>Phone</th>
+    <th>E-Mail</th>
+    <th></th>
+  </tr>
+  <!-- Adds a row for every Walk confirmed by the Dog Walker. -->
+  {% for walk in walks %}
+    <tr>
+        <td>
+          {{ walk.day }}
+        </td>
+        <td>
+          {{ walk.part }}
+        </td>
+        <td>
+          {{ walk.dog.name }}
+        </td>
+        <td>
+          {{ walk.dog.size }}
+        </td>
+        <td>
+          {{ walk.dog.gender }}
+        </td>
+        <td>
+          {{ walk.dog.age }}
+        </td>
+        <td>
+          {% if walk.dog.friendly == True %}
+            <span class="marked-true"> Yes </span>
+          {% elif walk.dog.friendly == False %}
+            <span class="marked-false"> No </span>
+            {{ item }}
+          {% endif %}
+        </td>
+        <td>
+          {% if walk.dog.vaccinated == True %}
+            <span class="marked-true"> Yes </span>
+          {% elif walk.dog.vaccinated == False %}
+            <span class="marked-false"> No </span>
+            {{ item }}
+          {% endif %}
+        </td>
+        <td>
+          {{ walk.dog.owner.name }}
+        </td>
+        <td>
+          {{ walk.dog.owner.phone }}
+        </td>
+        <td>
+          {{ walk.dog.owner.email }}
+        </td>
+    </tr>
+  {% endfor %}
+</table>

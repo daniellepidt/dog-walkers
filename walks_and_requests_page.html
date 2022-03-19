@@ -1,0 +1,18 @@
+<!-- This page is used by the Dog Walker to see his incoming requests for Walks & the Walks already set for him during his week. -->
+{% extends 'base.html' %}
+
+{% block title %}Incoming Requests & Set Walks{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="../../stylesheets/input.css">
+{% endblock %}
+{% block content %}
+    <h1 class="headline">Requests & Set Walks</h1>
+    <h1 class="open-sans">Incoming requests, wanna answer some?</h1>
+    <!-- The Dog Walker's requests table contains all of his incoming requested for him to approve or decline. Seperated to improve code readability -->
+    {% include 'walker/walks_and_requests/requests/requests_table.html' %}
+    <br>
+    <h1 class="open-sans">Your Set Walks</h1>
+    <!-- The set walks table -  Seperated to improve code readability -->
+    {% include 'walker/walks_and_requests/walks/walks_table.html' %}
+{% endblock %}
